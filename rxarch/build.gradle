@@ -5,16 +5,10 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'io.github.mechatronik'
-version = '0.1.0'
-
-uploadArchives {
-    repositories {
-        mavenLocal()
-    }
-}
+version = '0.1.1'
 
 android {
     compileSdkVersion 27
@@ -23,7 +17,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
-        versionName "0.1"
+        versionName "0.1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
