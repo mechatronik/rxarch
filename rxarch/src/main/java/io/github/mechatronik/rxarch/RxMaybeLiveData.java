@@ -6,7 +6,6 @@
 
 package io.github.mechatronik.rxarch;
 
-import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
 import io.reactivex.MaybeObserver;
@@ -14,9 +13,8 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 
 
-final class RxMaybeLiveData<T> extends LiveData<T> {
+final class RxMaybeLiveData<T> extends DisposeOnInactiveLiveData<T> {
     private final MaybeSource<T> upstream;
-    private Disposable disposable = null;
 
     RxMaybeLiveData(@NonNull MaybeSource<T> upstream) {
         this.upstream = upstream;
@@ -33,20 +31,23 @@ final class RxMaybeLiveData<T> extends LiveData<T> {
             @Override
             public void onSuccess(T t) {
                 postValue(t);
+                reset();
             }
 
             @Override
             public void onError(Throwable e) {
                 RxArchPlugins.onError(e);
+                reset();
             }
 
             @Override
-            public void onComplete() {}
-        });
-    }
+            public void onComplete() {
+                reset();
+            }
 
-    @Override
-    protected void onInactive() {
-        disposable.dispose();
+            private void reset() {
+                disposable = null;
+            }
+        });
     }
 }

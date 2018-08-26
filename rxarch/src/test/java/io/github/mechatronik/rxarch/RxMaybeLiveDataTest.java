@@ -15,7 +15,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import io.reactivex.Maybe;
-import io.reactivex.Single;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 
 import static org.hamcrest.CoreMatchers.isA;
@@ -63,5 +62,4 @@ public class RxMaybeLiveDataTest {
         liveData.observeForever(spyObserver);
         spyObserver.assertValues();
     }
-
 }
