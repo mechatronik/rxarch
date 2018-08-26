@@ -37,7 +37,7 @@ android {
 
 dependencies {
     // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:2.1.12"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.1"
     // Arch Components
     implementation "android.arch.lifecycle:livedata:1.1.1"
     testImplementation "android.arch.core:core-testing:1.1.1"
