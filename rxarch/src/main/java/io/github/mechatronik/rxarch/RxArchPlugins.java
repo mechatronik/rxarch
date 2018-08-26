@@ -33,13 +33,16 @@ public final class RxArchPlugins {
         if (error == null) {
             throw new NullPointerException("Null error passed to errorHandler() in RxArch");
         }
+        if (error instanceof Error) {
+            throw ((Error) error);
+        }
         if (errorHandler == null) {
             throw new OnErrorNotImplementedException("Unhandled error in RxArch", error);
         }
         try {
             errorHandler.accept(error);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Exception in errorHandler", e);
         }
     }
 }
