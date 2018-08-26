@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2018 Konrad Kowalewski
+ *
+ * This code is licensed under MIT license (see LICENSE for details)
+ */
+
 package io.github.mechatronik.rxarch;
 
 import org.junit.Test;
@@ -9,9 +15,7 @@ import io.reactivex.Single;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by Konrad Kowalewski.
- */
+
 public class RxArchTest {
 
     @Test

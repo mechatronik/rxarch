@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2018 Konrad Kowalewski
+ *
+ * This code is licensed under MIT license (see LICENSE for details)
+ */
+
 package io.github.mechatronik.rxarch;
 
 import java.util.LinkedList;
